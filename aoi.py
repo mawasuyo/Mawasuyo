@@ -1,16 +1,16 @@
 import streamlit as st
 import random
 
-st.title("🔮 今日の運勢 占いアプリ 🔮")
+st.title("🔮 今日の運勢 誰と付き合う？ 🔮")
 
 name = st.text_input("あなたの名前を教えてね：")
 
 if name:
     answers = [
-        "うんこ",
-        "ちんこ",
-        "おしっこ",
-        "げり"
+        "みなと",
+        "むっちゃん",
+        "そーし",
+        "あおい",'けいと','よしき','よしまさ','かなた','ひなた','そーま','村松先生','小倉先生','川久保先生','運海先生'
     ]
 
     result = random.choice(answers)
