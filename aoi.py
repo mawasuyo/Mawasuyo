@@ -7,10 +7,10 @@ name = st.text_input("あなたの名前を教えてね：")
 
 if name:
     answers = [
-        "ましだな",
-        "ふつー",
-        "今日ちょっとやべーぞ",
-        "死んだ方がいいかも"
+        "うんこ",
+        "ちんこ",
+        "おしっこ",
+        "げり"
     ]
 
     result = random.choice(answers)
