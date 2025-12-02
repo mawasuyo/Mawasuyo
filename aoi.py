@@ -1,18 +1,18 @@
+import time
 import streamlit as st
-import random
 
-st.title("🔮 今日の運勢 誰と付き合う？ 🔮")
+st.title("⏱ シンプルタイマー")
 
-name = st.text_input("あなたの名前を教えてね：")
+# 入力：カウントダウンする秒数
+seconds = st.number_input("カウントダウン秒数を入力してください", min_value=1, value=10)
 
-if name:
-    answers = [
-        "みなと",
-        "むっちゃん",
-        "そーし",
-        "あおい",'けいと','よしき','よしまさ','かなた','ひなた','そーま','村松先生','小倉先生','川久保先生','運海先生'
-    ]
+# スタートボタン
+if st.button("スタート"):
+    placeholder = st.empty()
 
-    result = random.choice(answers)
-    st.write("🔮 占いの結果 🔮")
-    st.write(f"{name} さんの今日の運勢は… {result}")
+    for remaining in range(seconds, 0, -1):
+        placeholder.markdown(f"## ⏳ 残り: {remaining} 秒")
+        time.sleep(1)
+
+    placeholder.markdown("## 🎉 タイマー終了！")
+
