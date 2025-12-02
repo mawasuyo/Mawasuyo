@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("🔢 シンプル電卓アプリ")
+st.title("電卓アプリ")
 
 # 入力
 num1 = st.number_input("1つ目の数値を入力", value=0.0)
