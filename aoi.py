@@ -1,18 +1,30 @@
-import time
 import streamlit as st
 
-st.title("⏱ シンプルタイマー")
+st.title("🔢 シンプル電卓アプリ")
 
-# 入力：カウントダウンする秒数
-seconds = st.number_input("カウントダウン秒数を入力してください", min_value=1, value=10)
+# 入力
+num1 = st.number_input("1つ目の数値を入力", value=0.0)
+num2 = st.number_input("2つ目の数値を入力", value=0.0)
 
-# スタートボタン
-if st.button("スタート"):
-    placeholder = st.empty()
+# 演算選択
+operation = st.selectbox(
+    "演算を選択してください",
+    ["足し算 (+)", "引き算 (-)", "掛け算 (×)", "割り算 (÷)"]
+)
 
-    for remaining in range(seconds, 0, -1):
-        placeholder.markdown(f"## ⏳ 残り: {remaining} 秒")
-        time.sleep(1)
+# ボタン
+if st.button("計算する"):
+    if operation == "足し算 (+)":
+        result = num1 + num2
+    elif operation == "引き算 (-)":
+        result = num1 - num2
+    elif operation == "掛け算 (×)":
+        result = num1 * num2
+    elif operation == "割り算 (÷)":
+        if num2 == 0:
+            st.error("0で割ることはできません。")
+            st.stop()
+        result = num1 / num2
 
-    placeholder.markdown("## 🎉 タイマー終了！")
+    st.success(f"結果：**{result}**")
 
