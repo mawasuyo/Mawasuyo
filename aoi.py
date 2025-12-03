@@ -1,30 +1,27 @@
 import streamlit as st
 
-st.title("電卓アプリ")
+st.title("柔道アプリ（練習管理 × 試合分析）🥋")
 
-# 入力
-num1 = st.number_input("1つ目の数値を入力", value=0.0)
-num2 = st.number_input("2つ目の数値を入力", value=0.0)
+menu = st.sidebar.selectbox("メニューを選択", ["ホーム", "練習記録", "試合分析"])
 
-# 演算選択
-operation = st.selectbox(
-    "演算を選択してください",
-    ["足し算 (+)", "引き算 (-)", "掛け算 (×)", "割り算 (÷)"]
-)
+if menu == "ホーム":
+    st.write("左のメニューから機能を選んでください🔥")
 
-# ボタン
-if st.button("計算する"):
-    if operation == "足し算 (+)":
-        result = num1 + num2
-    elif operation == "引き算 (-)":
-        result = num1 - num2
-    elif operation == "掛け算 (×)":
-        result = num1 * num2
-    elif operation == "割り算 (÷)":
-        if num2 == 0:
-            st.error("0で割ることはできません。")
-            st.stop()
-        result = num1 / num2
+elif menu == "練習記録":
+    st.header("📌 練習記録")
+    date = st.date_input("日付")
+    menu_type = st.text_input("練習メニュー")
+    minutes = st.number_input("練習時間（分）", 0)
+    note = st.text_area("メモ")
+    if st.button("保存"):
+        st.success("保存しました！")
 
-    st.success(f"結果：**{result}**")
+elif menu == "試合分析":
+    st.header("🎯 試合分析")
+    opponent = st.text_input("相手の名前")
+    score = st.text_input("勝敗 or スコア")
+    success = st.text_input("成功した技・形")
+    bad = st.text_input("課題・改善点")
+    if st.button("保存"):
+        st.success("保存しました！")
 
